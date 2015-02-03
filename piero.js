@@ -57,12 +57,12 @@
 
 				add_event : function ( event ) {
 
-					var self, circle_self
+					var circle_self
 
-					circle_self = this
-					event       = (
+					circle_self          = this
+					event                = (
 						event.constructor === Object ? 
-							[event] : 
+							[ event ] :
 							event 
 					)
 					this.event.listeners = self.library.morph.index_loop({
@@ -208,19 +208,19 @@
 			return add.event_list
 		},
 
-		add_event_listener_to_element : function (add) {
-
+		add_event_listener_to_element : function ( add ) {
+			console.log( add )
 			var self
 			self = this
 
-			add.to.addEventListener( 
+			add.to.addEventListener(
 				add.for,
 				function ( event ) {
 					add.set_state( 
 						self.handle_dom_event({
-							state    : add.with_given_state(),
-							event    : event,
-							listener : add.which_calls()
+							state     : add.with_given_state(),
+							event     : event,
+							listener  : add.which_calls()
 						})
 					)
 				}
@@ -230,8 +230,8 @@
 		handle_dom_event : function ( make ) {
 
 			var event_object = {
-				state : make.state,
-				event : make.event
+				state     : make.state,
+				event     : make.event,
 			}
 
 			return ( 
@@ -267,7 +267,7 @@
 						state : self.library.morph.copy_value({
 							value : loop.into.state
 						}),
-						event : loop.into.event
+						event     : loop.into.event,
 					})
 				}
 			})
