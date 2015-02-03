@@ -162,14 +162,16 @@
 		add_listeners : function ( add ) {
 
 			var self = this
-			return this.library.morphism.index_loop({
-				array    : add.listeners,
+			return this.library.morph.index_loop({
+				subject  : add.listeners,
 				into     : add.event_list,
 				else_do  : function ( loop ) {
 					return self.add_listener({
 						for        : loop.indexed.for,
 						that_does  : loop.indexed.that_does,
-						event_list : self.library.morphism.copy({ what : loop.into }),
+						event_list : self.library.morph.copy_value({ 
+							value : loop.into 
+						}),
 					})
 				}
 			})
